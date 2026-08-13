@@ -1,6 +1,6 @@
-//An event team records the duration of multiple meetings.
-//A Duration object stores: hours ,minutes
-//The program uses operator overloading to add two meeting durations and compare them.
+// An event team records the duration of multiple meetings.
+// A Duration object stores: hours, minutes.
+// The program uses operator overloading to add two meeting durations and compare them.
 
 #include <iostream>
 using namespace std;
@@ -22,7 +22,7 @@ public:
     Duration(int h, int m)
     {
         hours = h;
-        minutes == m;
+        minutes = m;
     }
 
     Duration operator+(Duration other)
@@ -32,7 +32,7 @@ public:
         result.hours = hours + other.hours;
         result.minutes = minutes + other.minutes;
 
-        if (result.minutes > 60)
+        while (result.minutes >= 60)
         {
             result.hours++;
             result.minutes -= 60;
@@ -46,8 +46,7 @@ public:
         if (hours > other.hours)
             return true;
 
-        if (hours == other.hours &&
-            minutes < other.minutes)
+        if (hours == other.hours && minutes > other.minutes)
             return true;
 
         return false;
